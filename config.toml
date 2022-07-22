@@ -3,8 +3,6 @@ metaDataFormat = "yaml"
 title = "Mert's Bert"
 theme = "blist"
 
-commentable = true
-disqusShortname = 'mertbozkr'
 
 [languages]
   [languages.en]
@@ -14,7 +12,7 @@ disqusShortname = 'mertbozkr'
     [languages.en.params]
       introTitle = "Hey! I'm Mert Bozkir"
       introSubtitle = "Self-learner on Machine Learning who enjoys latin dances, extreme sports and self-awareness"
-      introPhoto = "/photo.jpg"
+      introPhoto = "/pp.png"
       logo = "/blue.png"
     [[languages.en.menu.main]]
         name = "Blog"
@@ -33,7 +31,7 @@ disqusShortname = 'mertbozkr'
 
     [[languages.en.menu.main]]
         name = "Top Post"
-        url = "/blog/emoji-support/"
+        url = "/blog/02-three-big-questions/"
         weight = 4
 
  

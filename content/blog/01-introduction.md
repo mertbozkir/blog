@@ -2,7 +2,7 @@
 author: "Mert Bozkir"
 title: "Introduction"
 date: 2022-06-09
-description: A brief introduction of me
+description: A brief introduction of me!
 tags: ["Mert's Life"]
 thumbnail: /first_blog.jpg
 
@@ -16,7 +16,7 @@ I spent most of my time with creating this blog site today. I hate web developme
 
 So, coming to the point. I am gonna share some of my perspective for life, I'm gonna share some tutorials about data (I ❤️ Data), and of course I will share my fails, mistakes. I usually don't like reading, writing or creating content, but it makes me feel good. My concept will not be formal, I will write like talking with my friends. Of course technical content will be formal, Cedric. 😂
 
-I think I don't need to introduce myself, we already each other from LinkedIn. (Isn't it mate!) I love to connect with people on LinkedIn. When I had chance, I'm sending personalized invitations. It's best way to connecting on LinkedIn. I will share some of my LinkedIn secrets later. My LinkedIn SSI is really high. SSI is [Social Selling Index](https://business.linkedin.com/sales-solutions/social-selling/the-social-selling-index-ssi) and it analyzing your LinkedIn network. My Current index is 70 out of 100 and my both industry/network ranks are %2. My building relationship score is 25/25. (I said that I love networking 😏).  As I said, We will talk about these things later. It is almost 2 AM and I need to sleep. Today, I will sleep easily because of this website :D
+I think I don't need to introduce myself, we already know each other from LinkedIn. (Isn't it mate!) I love to connect with people on LinkedIn. When I had chance, I'm sending personalized invitations. It's best way to connecting on LinkedIn. I will share some of my LinkedIn secrets later. My LinkedIn SSI is really high. SSI is [Social Selling Index](https://business.linkedin.com/sales-solutions/social-selling/the-social-selling-index-ssi) and it analyzing your LinkedIn network. My Current index is 70 out of 100 and my both industry/network ranks are %2. My building relationship score is 25/25. (I said that I love networking 😏).  As I said, We will talk about these things later. It is almost 2 AM and I need to sleep. Today, I will sleep easily because of this website :D
 You really don't know how many times I exaggerated this website to my roommate, it's like saving world to me...
 
 
