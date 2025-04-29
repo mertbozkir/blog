@@ -1,0 +1,66 @@
+---
+title: 'Lighteval'
+tags: 'journal'
+date: 'Apr 29, 2025'
+---
+
+I am working on the Turkish eval integration to the [lighteval](https://huggingface.co/docs/lighteval/index).
+
+It's fascinating to understand what's happening behind the scenes of benchmarks!
+
+Current [OpenLLMTurkishLeaderboard v0.2](https://huggingface.co/spaces/malhajar/OpenLLMTurkishLeaderboard_v0.2) is consists of 6 tasks
+
+- gsm8k: high-quality grade school math problems
+- mmlu: massive multitask language understanding
+- truthful qa: measure whether a language model is truthful in generating answers to questions.
+- winogrande: adversarial winograd schema challenge
+- hellaswag: evaluating commonsense natural language inference
+- arc: ai2 reasoning challenge
+
+and to implement these tasks in lighteval, not that hard!
+
+Follow [Adding a Custom Task](https://huggingface.co/docs/lighteval/adding-a-custom-task) page.
+
+You need a prompt function like this!
+```python 
+def prompt_fn(line, task_name: str = None):
+    return Doc(
+        task_name=task_name,
+        query=line["question"],
+        choices=[f" {c}" for c in line["choices"]],
+        gold_index=line["gold"],
+        instruction="",
+    )
+```
+This function returns query -> your prompt, choices, and gold_index means your answer index list! (if you have multiple right answers.) 
+
+then you need a task configuration for lighteval
+```python
+task = LightevalTaskConfig(
+    name="myothertask",
+    prompt_function=prompt_fn,  # must be defined in the file or imported from src/lighteval/tasks/tasks_prompt_formatting.py
+    suite=["community"],
+    hf_repo="",
+    hf_subset="default",
+    hf_avail_splits=[],
+    evaluation_splits=[],
+    few_shots_split=None,
+    few_shots_select=None,
+    metric=[],  # select your metric in Metrics
+)
+```
+
+Then you need to add your task to the `TASKS_TABLE` list.
+
+After getting these steps done for every tasks. You need to run evaluate command! 
+
+```bash
+lighteval accelerate \
+    "model_name=HuggingFaceH4/zephyr-7b-beta" \
+    "community|{custom_task}|0|0" \
+    --custom-tasks {path_to_your_custom_task_file}
+```
+
+Ta-daa! 🎉
+
+I've already created an [issue](https://github.com/huggingface/lighteval/issues/692) in lighteval, soon I'll create a pull-request for this contribution.

@@ -1,0 +1,232 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: linear-gradient(
+    135deg,
+    #fff8f3 0%,
+    /* Warm cream */ #fffcf7 50%,
+    /* Paper white */ #fff8f3 100% /* Warm cream */
+  );
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+.dark body {
+  background: linear-gradient(
+    135deg,
+    #0a1f15 0%,
+    /* Darker phthalo green */ #0d2419 50%,
+    /* Deep phthalo green */ #0a1f15 100% /* Darker phthalo green */
+  );
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
+.prose {
+  color: #334155;
+  width: 100%;
+  min-width: 100%;
+  padding: 0 0.5rem;
+  position: relative;
+}
+
+/* Add subtle paper texture */
+.prose::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.005' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.dark .prose {
+  color: #e2e8f0;
+}
+
+.prose strong {
+  font-weight: bolder;
+}
+
+.dark .prose strong {
+  color: #93d2fd;
+  font-weight: bold;
+}
+
+.prose ul {
+  list-style: none;
+}
+
+.prose code {
+  background-color: #b3b3b3;
+  color: #050505;
+  padding: 0.2em 0.2em;
+  border-radius: 0.3em;
+  font-size: 0.85em;
+}
+
+.prose pre {
+  padding: 0;
+  border: none;
+}
+
+.prose pre code {
+  background-color: inherit;
+}
+
+.prose code::before {
+  content: '';
+}
+
+.prose code::after {
+  content: '';
+}
+
+.prose ul li::before {
+  content: '\25E6'; /* Unicode for a small circle */
+  color: slategrey; /* Change the color */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Tweak as needed */
+}
+
+.prose a {
+  background-image: url('../public/underline.svg');
+  background-size: 100% 4px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  padding-bottom: 0.05rem;
+  text-decoration: none;
+}
+
+.dark .prose a {
+  background-image: url('../public/underline-dark.png');
+  color: #fff;
+}
+
+.prose a:hover {
+  color: #d70a1b;
+}
+
+.dark .prose a:hover {
+  color: #ff959e;
+}
+
+.prose h1 {
+  font-size: 1.5rem /* 24px */;
+  line-height: 2rem /* 32px */;
+}
+
+.prose h2 {
+  font-size: 1.2rem;
+}
+
+.prose h3 {
+  font-size: 1.1rem;
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3 {
+  color: #fff; /* set your preferred color for dark mode */
+}
+
+.prose blockquote {
+  margin: 0 0.1em 0 0.1em;
+  padding: 0 0em 0 1em;
+  border-left: 3px solid #b0afaf;
+  border-left-width: 3px;
+  border-color: #000000;
+  quotes: none;
+  font-style: normal;
+  font-weight: normal;
+  color: #595959;
+}
+
+.prose hr {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  border-width: 0.1px;
+  border-color: #b0afaf;
+}
+
+.dark .prose blockquote {
+  border-color: #fff;
+  color: #b4b4b4;
+}
+
+.prose img {
+  width: 100%;
+  margin-bottom: 0;
+  display: block;
+  object-fit: cover;
+  border-radius: 0.2rem;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 10px 0 rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+::selection {
+  background: rgba(147, 197, 253, 0.3);
+  color: #1a1a2e;
+}
+
+mark {
+  background-color: #faec9b;
+  color: black;
+}
+
+.dark ::selection {
+  background: rgba(147, 197, 253, 0.2);
+  color: #fff;
+}
+
+.hover-container {
+  display: inline-block; /* Only take up necessary space */
+  position: relative; /* Context for absolute positioning */
+}
+
+.image-container {
+  position: fixed; /* Fixed to the viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 80vh;
+  display: none; /* Initially hidden */
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Ignore pointer events when not visible */
+}
+
+.image-hover {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  pointer-events: auto; /* Reactivate pointer events for the image */
+}
+
+.hover-container:hover .image-container {
+  display: flex; /* Show when the container is hovered */
+}
+
+@keyframes loading-bar {
+  0% {
+    transform: translateX(-100%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 1.5s ease-in-out infinite;
+}
