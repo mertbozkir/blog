@@ -37,6 +37,8 @@ next-env.d.ts
 
 posts/drafts/*.md
 drafts
+posts/templates/*.md
+posts/.obsidian
 
 .vscode
 
